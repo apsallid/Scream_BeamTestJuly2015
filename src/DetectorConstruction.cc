@@ -226,7 +226,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructCalorimeter()
   fSolidAl1 = 0; fLogicAl1 = 0; fPhysiAl1 = 0;
   if (fAl1Thickness > 0.){
     fSolidAl1 = new G4Box("Al1",
-			 fAl1Thickness/2.,fCalorSizeYZ/20,fCalorSizeYZ/20);
+			 fAl1Thickness/2.,fCalorSizeYZ/2,fCalorSizeYZ/2);
                                
     fLogicAl1 = new G4LogicalVolume(fSolidAl1,
 				   fAl1Material,
@@ -254,9 +254,10 @@ G4VPhysicalVolume* DetectorConstruction::ConstructCalorimeter()
     fLogicWorld->SetVisAttributes (G4VisAttributes::Invisible);
     fLogicCalor->SetVisAttributes(G4VisAttributes::Invisible);
    
-    G4VisAttributes* magenta=new G4VisAttributes(true,G4Colour(1.,0.,1.));
+    // G4VisAttributes* magenta=new G4VisAttributes(true,G4Colour(1.,0.,1.));
+    G4VisAttributes* blue=new G4VisAttributes(true,G4Colour(0.,0.,1.));
     G4VisAttributes* yellow=new G4VisAttributes(true,G4Colour(1.,1.,0.));
-    fLogicAl1->SetVisAttributes(magenta);
+    fLogicAl1->SetVisAttributes(blue);
  
     fLogicAbsorber1->SetVisAttributes(yellow);
 
@@ -309,7 +310,6 @@ G4VPhysicalVolume* DetectorConstruction::ConstructCalorimeter()
 	 G4VisAttributes* magenta=new G4VisAttributes(true,G4Colour(1.,0.,1.));
 	 G4VisAttributes* yellow=new G4VisAttributes(true,G4Colour(1.,1.,0.));
 	 fLogicAr1->SetVisAttributes(magenta);
-	 fLogicAl1->SetVisAttributes(magenta);
 	 fLogicAbsorber1->SetVisAttributes(yellow);
 
 	 G4VisAttributes* simpleBoxVisAtt= new G4VisAttributes(G4Colour(1.0,1.0,1.0));
@@ -323,7 +323,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructCalorimeter()
   fSolidPCB1 = 0; fLogicPCB1 = 0; fPhysiPCB1 = 0;
   if (fPCB1Thickness > 0.){
     fSolidPCB1 = new G4Box("PCB1",
-			 fPCB1Thickness/2.,fCalorSizeYZ/20,fCalorSizeYZ/20);
+			 fPCB1Thickness/2.,fCalorSizeYZ/2,fCalorSizeYZ/2);
                                
     fLogicPCB1 = new G4LogicalVolume(fSolidPCB1,
 				     fPCB1Material,
@@ -351,9 +351,10 @@ G4VPhysicalVolume* DetectorConstruction::ConstructCalorimeter()
     fLogicWorld->SetVisAttributes (G4VisAttributes::Invisible);
     fLogicCalor->SetVisAttributes(G4VisAttributes::Invisible);
    
-    G4VisAttributes* magenta=new G4VisAttributes(true,G4Colour(1.,0.,1.));
+    // G4VisAttributes* magenta=new G4VisAttributes(true,G4Colour(1.,0.,1.));
+    G4VisAttributes* greenn=new G4VisAttributes(true,G4Colour(0.0, 1.0, 0.0));
     G4VisAttributes* yellow=new G4VisAttributes(true,G4Colour(1.,1.,0.));
-    fLogicPCB1->SetVisAttributes(magenta);
+    fLogicPCB1->SetVisAttributes(greenn);
     fLogicAbsorber1->SetVisAttributes(yellow);
 
     G4VisAttributes* simpleBoxVisAtt= new G4VisAttributes(G4Colour(1.0,1.0,1.0));
@@ -378,7 +379,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructCalorimeter()
 
                                                 
       fPhysiAbsorber2 = new G4PVPlacement(0,                   //no rotation
-					  G4ThreeVector(fAbsorber2Thickness/2,0.,0.),  //its position
+					  G4ThreeVector(posx,0.,0.),  //its position
 					  fLogicAbsorber2,     //its logical volume
 					  fAbsorber2Material->GetName(), //its name
 					  fLogicCalor,          //its mother
@@ -392,7 +393,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructCalorimeter()
   fSolidAl2 = 0; fLogicAl2 = 0; fPhysiAl2 = 0;
   if (fAl2Thickness > 0.){
     fSolidAl2 = new G4Box("Al2",
-			 fAl2Thickness/2.,fCalorSizeYZ/20,fCalorSizeYZ/20);
+			 fAl2Thickness/2.,fCalorSizeYZ/2,fCalorSizeYZ/2);
                                
     fLogicAl2 = new G4LogicalVolume(fSolidAl2,
 				   fAl2Material,
@@ -420,9 +421,9 @@ G4VPhysicalVolume* DetectorConstruction::ConstructCalorimeter()
     fLogicWorld->SetVisAttributes (G4VisAttributes::Invisible);
     fLogicCalor->SetVisAttributes(G4VisAttributes::Invisible);
    
-    G4VisAttributes* magenta=new G4VisAttributes(true,G4Colour(1.,0.,1.));
+    G4VisAttributes* blue=new G4VisAttributes(true,G4Colour(0.,0.,1.));
     G4VisAttributes* yellow=new G4VisAttributes(true,G4Colour(1.,1.,0.));
-    fLogicAl2->SetVisAttributes(magenta);
+    fLogicAl2->SetVisAttributes(blue);
  
     fLogicAbsorber1->SetVisAttributes(yellow);
     fLogicAbsorber2->SetVisAttributes(yellow);
@@ -476,7 +477,6 @@ G4VPhysicalVolume* DetectorConstruction::ConstructCalorimeter()
 	 G4VisAttributes* magenta=new G4VisAttributes(true,G4Colour(1.,0.,1.));
 	 G4VisAttributes* yellow=new G4VisAttributes(true,G4Colour(1.,1.,0.));
 	 fLogicAr2->SetVisAttributes(magenta);
-	 fLogicAl1->SetVisAttributes(magenta);
 	 fLogicAbsorber1->SetVisAttributes(yellow);
 	 fLogicAbsorber2->SetVisAttributes(yellow);
 
@@ -490,7 +490,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructCalorimeter()
   fSolidPCB2 = 0; fLogicPCB2 = 0; fPhysiPCB2 = 0;
   if (fPCB2Thickness > 0.){
     fSolidPCB2 = new G4Box("PCB2",
-			 fPCB2Thickness/2.,fCalorSizeYZ/20,fCalorSizeYZ/20);
+			 fPCB2Thickness/2.,fCalorSizeYZ/2,fCalorSizeYZ/2);
                                
     fLogicPCB2 = new G4LogicalVolume(fSolidPCB2,
 				     fPCB2Material,
@@ -518,9 +518,9 @@ G4VPhysicalVolume* DetectorConstruction::ConstructCalorimeter()
     fLogicWorld->SetVisAttributes (G4VisAttributes::Invisible);
     fLogicCalor->SetVisAttributes(G4VisAttributes::Invisible);
    
-    G4VisAttributes* magenta=new G4VisAttributes(true,G4Colour(1.,0.,1.));
+    G4VisAttributes* greenn=new G4VisAttributes(true,G4Colour(0.0, 1.0, 0.0));
     G4VisAttributes* yellow=new G4VisAttributes(true,G4Colour(1.,1.,0.));
-    fLogicPCB2->SetVisAttributes(magenta);
+    fLogicPCB2->SetVisAttributes(greenn);
     fLogicAbsorber1->SetVisAttributes(yellow);
     fLogicAbsorber2->SetVisAttributes(yellow);
 
